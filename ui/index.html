@@ -1,17 +1,61 @@
 <!doctype html>
 <html>
     <head>
+		<title>Welcome to My First Web App</title>
+		<meta name="viewport" content="width-device-width, initial-scale=1">
         <link href="/ui/style.css" rel="stylesheet" />
     </head>
     <body>
-        <div class="center">
-            <img src="/ui/madi.png" class="img-medium"/>
-        </div>
-        <br>
-        <div class="center text-big bold">
-            Hi! I am your webapp Developer.
-        </div>
-        <script type="text/javascript" src="/ui/main.js">
-        </script>
+       <div class="container">
+			<div id="img" class="center">
+				<img src="/ui/madi.png" class="img-medium"/>
+			</div>
+			<br>
+			<div class="center text-big bold">
+				<a href=''>Hi! I am your webapp Developer Index Page...</a>
+			</div>
+			<hr>
+			<form class="form">
+				<div class="Item">Name: <br><input type="text" class="field" id="name" name="name"><br></div>
+				<div class="Item">Email:<br><input type="text" class="field" id="email" name="email"><br></div>
+				<div class="Item">Mobile:<br><input type="text" class="field" id="mobile" name="mobile"><br></div>
+				<div class="Item">Address:<br><input type="text" class="field" id="address" name="address"><br></div>
+				<div class="Item"><button type="button" class="field" id="submit">Submit</div>
+			</form>
+			<hr>
+		<table id='users'>
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Phone</th>
+				<th>Address</th>
+			</tr>
+			<tr onclick="showRowIndex(this)">
+				<td>Hameed Hussain</td>
+				<td>hameed.kurla@gmail.com</td>
+				<td>+971502820146</td>
+				<td>Abu Dhabi</td>
+			</tr>
+			<tr onclick="showRowIndex(this)">
+				<td>Hameed Hussain</td>
+				<td>hameed.kurla@gmail.com</td>
+				<td>+971502820146</td>
+				<td>Abu Dhabi</td>
+			</tr>
+			<tr onclick="showRowIndex(this)">
+				<td>Hameed Hussain</td>
+				<td>hameed.kurla@gmail.com</td>
+				<td>+971502820146</td>
+				<td>Abu Dhabi</td>
+			</tr>
+		</table>
+
+<hr>
+			<div class="footer">
+				This Button <button id="counter">Click Here.</button> has been clicked <span id="count">0</span> times.
+			</div>
+			<script type="text/javascript" src="/ui/main.js">
+			</script>
+		</div>
     </body>
 </html>
