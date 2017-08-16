@@ -1,11 +1,12 @@
 body {
     font-family: sans-serif;
-    background-color: lightgrey;
+	/*background-color: lightgrey;*/
     margin-top: 75px;
 }
 
 .center {
     text-align: center;
+	padding-left: 20px;
 }
 
 .text-big {
@@ -17,6 +18,39 @@ body {
 }
 
 .img-medium {
-    height: 200px;
+    height: 100px;
 }
 
+.container{
+				max-width: 1000px;
+				margin: 0 auto;
+				color: #353333;
+				font-family: sans-serif;
+				padding-top: 30px;
+				padding-left: 20px;
+				padding-right: 20px;
+			}
+.Item{
+				padding-top: 10px;
+				padding-left: 20px;
+			}
+.field{
+			height: 30px;
+			width: 70%;
+			font-size: 100%;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
