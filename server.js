@@ -117,7 +117,7 @@ app.get('/artcles/:artcleName',function(req,res){
       }
       else{
            artcleData = result.rows[0];
-           res.send(createHtmltemplate(artcles[artcleData]));
+           res.send(createHtmltemplate(artcleData));
       }
   })
     
