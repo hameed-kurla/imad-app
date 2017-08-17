@@ -78,6 +78,33 @@ app.get('/hash/:inputString', function (req, res) {
     res.send(hashedString);
 });
 
+app.post('/login', function (req, res) {
+/* curl -XPOST -H 'Content-Type: application/json' --data '{"username": "Hameed", "password": "Husssain", "email": "hameed.kurla@gmail.com"}' http://hameedkurla.imad.hasura-app.io/create-user*/
+    var username= req.body.username;
+    var password= req.body.password;
+    pool.query('SELECT * FROM users where username=$1',[username],function(err,result){
+      if (err){
+          res.status(500).send(err.toString());
+      }
+       else{
+            if (result.rows.length===0) {
+                res.status(403).send('User Not Found');
+            }
+            else{
+                dbString = result.rows[0].password;
+                saltValue = dbString.split('$')[2];
+                hashedPassword = generatehash(password,saltValue);
+                if (dbString === hashedPassword){
+                    res.send('Login Success');
+                }
+                else{
+                    res.status(403).send('Password is Incorrect');
+                }
+            }
+       }
+  })
+});
+
 app.post('/create-user', function (req, res) {
 /* curl -XPOST -H 'Content-Type: application/json' --data '{"username": "Hameed", "password": "Husssain", "email": "hameed.kurla@gmail.com"}' http://hameedkurla.imad.hasura-app.io/create-user*/
     var username= req.body.username;
