@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 var app = express();
 app.use(morgan('combined'));
-//apps.use(bodyParser.JSON());
+app.use(bodyParser.JSON());
 
 var artcles={
 		artcleOne: {
@@ -78,8 +78,8 @@ app.get('/hash/:inputString', function (req, res) {
     res.send(hashedString);
 });
 
-/*app.post('/create-user', function (req, res) {
-// curl -XPOST -H 'Content-Type: application/json' --data '{"username": "Hameed", "password": "Husssain", "email": "hameed.kurla@gmail.com"}' http://hameedkurla.imad.hasura-app.io/create-user
+app.post('/create-user', function (req, res) {
+/* curl -XPOST -H 'Content-Type: application/json' --data '{"username": "Hameed", "password": "Husssain", "email": "hameed.kurla@gmail.com"}' http://hameedkurla.imad.hasura-app.io/create-user*/
     var username= req.body.username;
     var password= req.body.password;
     var saltValue = crypto.randomBytes(128).toString('hex');
@@ -92,7 +92,7 @@ app.get('/hash/:inputString', function (req, res) {
           res.send('User Created Successfully');
       }
   })
-});*/
+});
 
 function createHtmltemplate(data){
 	var title=data.title;
