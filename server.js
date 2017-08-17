@@ -76,6 +76,19 @@ app.get('/hash/:inputString', function (req, res) {
     res.send(hashedString);
 });
 
+app.get('/create-user', function (req, res) {
+    var saltValue = crypto.getRandomBytes(128).toString('hex');
+    var hashedString = generatehash(req.params.inputString,saltValue);
+    pool.query('INSERT into "users"(username,password,email) VALUES ($1,$2,$3)',function(err,result){
+      if (err){
+          res.status(500).send(err.toString());
+      }
+      else{
+          res.send('User Created Successfully');
+      }
+  })
+});
+
 function createHtmltemplate(data){
 	var title=data.title;
 	var heading=data.heading;
