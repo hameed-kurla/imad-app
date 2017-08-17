@@ -111,7 +111,9 @@ app.get('/artcles/:artcleName',function(req,res){
     
     var artcleNameValue = req.params.artcleName;
    
-    pool.query("SELECT title,heading,content FROM artcles where artclename = " + artcleNameValue,function(err,result){
+    //pool.query("SELECT title,heading,content FROM artcles where artclename = " + artcleNameValue,function(err,result){
+    pool.query("SELECT title,heading,content FROM artcles where artclename = '" + artcleNameValue+"'",function(err,result){
+        
       if (err){
           res.status(500).send(err.toString());
       }
