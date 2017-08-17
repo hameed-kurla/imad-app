@@ -53,8 +53,8 @@ var config = {
 
 var pool= new Pool(config);
 
-app.get('/userss', function (req, res) {
-  pool.query('SELECT * FROM Usersss',function(err,result){
+app.get('/users', function (req, res) {
+  pool.query('SELECT * FROM artcles',function(err,result){
       if (err){
           res.status(500).send(err.toString());
       }
