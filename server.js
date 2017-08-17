@@ -78,7 +78,7 @@ app.get('/hash/:inputString', function (req, res) {
     res.send(hashedString);
 });
 
-app.post('/create-user', function (req, res) {
+/*app.post('/create-user', function (req, res) {
 // curl -XPOST -H 'Content-Type: application/json' --data '{"username": "Hameed", "password": "Husssain", "email": "hameed.kurla@gmail.com"}' http://hameedkurla.imad.hasura-app.io/create-user
     var username= req.body.username;
     var password= req.body.password;
@@ -92,7 +92,7 @@ app.post('/create-user', function (req, res) {
           res.send('User Created Successfully');
       }
   })
-});
+});*/
 
 function createHtmltemplate(data){
 	var title=data.title;
