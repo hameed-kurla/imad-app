@@ -41,6 +41,7 @@ var artcles={
 };
 
 var Pool =require('pg').Pool;
+
 var config = {
     user: 'hameedkurla',
     database: 'hameedkurla', 
