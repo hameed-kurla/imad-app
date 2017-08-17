@@ -40,15 +40,28 @@ var artcles={
 				}
 };
 
-var pool =require('pg').Pool;
+var Pool =require('pg').Pool;
 var config = {
-    user: '',
-    database: '', 
-    host: '',
-    port: '',
+    user: 'hameedkurla',
+    database: 'hameedkurla', 
+    host: 'db.imad.hasura-app.io',
+    port: '5432',
     password: process.env.DB_PASSWORD
     
 }
+
+var pool= new Pool(config);
+app.get('/users', function (req, res) {
+  pool.query('SELECT * FROM Users',function(err,result){
+      if (err){
+          res.status(500).send(err.toString());
+      }
+      else{
+          res.send(JSON.toString(result.rows));
+      }
+  })
+});
+
 function createHtmltemplate(data){
 	var title=data.title;
 	var heading=data.heading;
