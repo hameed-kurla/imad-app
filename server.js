@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 var app = express();
 app.use(morgan('combined'));
-apps.use(bodyParser.JSON());
+//apps.use(bodyParser.JSON());
 
 var artcles={
 		artcleOne: {
