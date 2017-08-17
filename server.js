@@ -113,24 +113,21 @@ app.get('/artcles/:artcleName',function(req,res){
    
     //pool.query("SELECT title,heading,content FROM artcles where artclename = " + artcleNameValue,function(err,result){
     //pool.query("SELECT title,heading,content FROM artcles where artclename = '" + artcleNameValue+"'",function(err,result){
+   
     pool.query("SELECT title,heading,content FROM artcles where artclename = $1", [artcleNameValue],function(err,result){
-        
-    if (err){
-          res.status(500).send(err.toString());
-      }
-      else{
-          if (result.rows.length===0) {
-             res.status(404).send('Artcle Not Foun');
-          }
-          else{
-             artcleData = result.rows[0];
-             res.send(createHtmltemplate(artcleData));
-          }
-             
-      }
-  })
-    
-    
+        if (err){
+            res.status(500).send(err.toString());
+        }
+        else{
+            if (result.rows.length===0) {
+                res.status(404).send('Artcle Not Foun');
+            }
+            else{
+                artcleData = result.rows[0];
+                res.send(createHtmltemplate(artcleData));
+            }
+        }
+    })
 });
 
 var counter = 0;
