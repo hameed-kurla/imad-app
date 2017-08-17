@@ -51,13 +51,14 @@ var config = {
 }
 
 var pool= new Pool(config);
+
 app.get('/users', function (req, res) {
   pool.query('SELECT * FROM Users',function(err,result){
       if (err){
           res.status(500).send(err.toString());
       }
       else{
-          res.send(JSON.toString(result.rows));
+          res.send(JSON.stringify(result.rows));
       }
   })
 });
