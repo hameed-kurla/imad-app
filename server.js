@@ -104,16 +104,25 @@ app.get('/', function (req, res) {
 /*
 app.get('/artcle-two', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'artcle-two.html'));
-});
+});*/
 
 
 app.get('/artcles/:artcleName',function(req,res){
     
     var artcleNameValue = req.params.artcleName;
+   
+    pool.query("SELECT * FROM artcles where artclename = " + artcleNameValue,function(err,result){
+      if (err){
+          res.status(500).send(err.toString());
+      }
+      else{
+           artcleData = result.rows[0];
+           res.send(createHtmltemplate(artcles[artcleData]));
+      }
+  })
     
-    res.send(createHtmltemplate(artcles[artcleNameValue]));
     
-});*/
+});
 
 var counter = 0;
 app.get('/counter', function (req, res) {
