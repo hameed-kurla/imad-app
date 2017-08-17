@@ -103,7 +103,7 @@ app.get('/', function (req, res) {
 /*
 app.get('/artcle-two', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'artcle-two.html'));
-});*/
+});
 
 
 app.get('/artcles/:artcleName',function(req,res){
@@ -112,7 +112,7 @@ app.get('/artcles/:artcleName',function(req,res){
     
     res.send(createHtmltemplate(artcles[artcleNameValue]));
     
-});
+});*/
 
 var counter = 0;
 app.get('/counter', function (req, res) {
