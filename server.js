@@ -1,6 +1,8 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
+var Pool =require('pg').Pool;
+var crypto = require('crypto');
 
 var app = express();
 app.use(morgan('combined'));
@@ -40,16 +42,13 @@ var artcles={
 				}
 };
 
-var Pool =require('pg').Pool;
-
 var config = {
-    user: 'hameedkurla',
-    database: 'hameedkurla', 
-    host: 'db.imad.hasura-app.io',
-    port: '5432',
-    password: process.env.DB_PASSWORD
-    
-}
+                user: 'hameedkurla',
+                database: 'hameedkurla', 
+                host: 'db.imad.hasura-app.io',
+                port: '5432',
+                password: process.env.DB_PASSWORD
+            };
 
 var pool= new Pool(config);
 
@@ -62,6 +61,19 @@ app.get('/users', function (req, res) {
           res.send(JSON.stringify(result.rows));
       }
   })
+});
+
+function generatehash(inputString,saltValue){
+    
+    var returnValue = crypto.pbkdf2Sync(inputString,saltValue,10000,512,'sha512');
+    return returnValue.toString('hex');
+
+}
+
+app.get('/hash/:inputString', function (req, res) {
+    var saltValue = 'some salt to hash';
+    var hashedString = generatehash(req.params.inputString,saltValue);
+    res.send(hashedString);
 });
 
 function createHtmltemplate(data){
