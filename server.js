@@ -82,6 +82,7 @@ app.post('/create-user', function (req, res) {
 /* curl -XPOST -H 'Content-Type: application/json' --data '{"username": "Hameed", "password": "Husssain", "email": "hameed.kurla@gmail.com"}' http://hameedkurla.imad.hasura-app.io/create-user*/
     var username= req.body.username;
     var password= req.body.password;
+    var email= req.body.email;
     var saltValue = crypto.randomBytes(128).toString('hex');
     var hashedString = generatehash(password,saltValue);
     pool.query('INSERT into "users"(username,password,email) VALUES ($1,$2,$3)',function(err,result){
