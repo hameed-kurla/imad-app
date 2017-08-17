@@ -40,6 +40,15 @@ var artcles={
 				}
 };
 
+var pool =require('pg').Pool;
+var config = {
+    user: '',
+    database: '', 
+    host: '',
+    port: '',
+    password: process.env.DB_PASSWORD
+    
+}
 function createHtmltemplate(data){
 	var title=data.title;
 	var heading=data.heading;
@@ -81,6 +90,15 @@ app.get('/', function (req, res) {
 app.get('/artcle-two', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'artcle-two.html'));
 });*/
+
+
+app.get('/artcles/:artcleName',function(req,res){
+    
+    var artcleNameValue = req.params.artcleName;
+    
+    res.send(createHtmltemplate(artcles[artcleNameValue]));
+    
+});
 
 var counter = 0;
 app.get('/counter', function (req, res) {
