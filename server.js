@@ -77,9 +77,10 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
+/*
 app.get('/artcle-two', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'artcle-two.html'));
-});
+});*/
 
 var counter = 0;
 app.get('/counter', function (req, res) {
