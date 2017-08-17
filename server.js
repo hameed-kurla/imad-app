@@ -52,7 +52,7 @@ var config = {
 
 var pool= new Pool(config);
 
-app.get('/users', function (req, res) {
+app.get('/userss', function (req, res) {
   pool.query('SELECT * FROM Users',function(err,result){
       if (err){
           res.status(500).send(err.toString());
