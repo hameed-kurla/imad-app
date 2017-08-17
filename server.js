@@ -92,7 +92,7 @@ app.post('/login', function (req, res) {
             }
             else{
                 dbString = result.rows[0].password;
-                saltValue = dbString.split('$')[2];
+                saltValue = dbString.split('$')[1];
                 hashedPassword = generatehash(password,saltValue);
                 if (dbString === hashedPassword){
                     res.send('Login Success');
@@ -102,7 +102,7 @@ app.post('/login', function (req, res) {
                 }
             }
        }
-  })
+    });
 });
 
 app.post('/create-user', function (req, res) {
@@ -119,7 +119,7 @@ app.post('/create-user', function (req, res) {
       else{
           res.send('User Created Successfully');
       }
-  })
+    });
 });
 
 function createHtmltemplate(data){
@@ -185,7 +185,7 @@ app.get('/artcles/:artcleName',function(req,res){
                 res.send(createHtmltemplate(artcleData));
             }
         }
-    })
+    });
 });
 
 var counter = 0;
