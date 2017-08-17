@@ -79,7 +79,7 @@ app.get('/hash/:inputString', function (req, res) {
 });
 
 app.post('/create-user', function (req, res) {
-    
+// curl -XPOST -H 'Content-Type: application/json' --data '{"username": "Hameed", "password": "Husssain", "email": "hameed.kurla@gmail.com"}' http://localhost../create-user
     var username= req.body.username;
     var password= req.body.password;
     var saltValue = crypto.randomBytes(128).toString('hex');
