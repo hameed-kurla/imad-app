@@ -66,7 +66,7 @@ app.get('/users', function (req, res) {
 function generatehash(inputString,saltValue){
     
     var returnValue = crypto.pbkdf2Sync(inputString,saltValue,10000,512,'sha512');
-    return [returnValue.toString('hex')].join('$');
+    return ['pbkd2',saltValue,10000,returnValue.toString('hex')].join('$');
 
 }
 
