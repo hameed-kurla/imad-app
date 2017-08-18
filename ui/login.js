@@ -8,10 +8,10 @@ submit_btn.onclick = function() {
 	request.onreadystatechange = function() {
 	    if (request.readyState === XMLHttpRequest.DONE) {
 				if (request.status === 200){
-					alert('User Created Successfully');
+					alert('User Logged in Successfully');
 				}
 				else if (request.status === 403){
-				    alert('User not found');
+				    alert('Invalid Username / Password');
 				}
 				else if (request.status === 500){
 				    alert('Internal Error: something went wrong');
