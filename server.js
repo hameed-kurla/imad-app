@@ -9,40 +9,7 @@ var app = express();
 app.use(morgan('combined'));
 app.use(bodyParser.json());
 
-var artcles={
-		artcleOne: {
-					title: `Welcome To Artcle One! Hameed Hussain`,
-					heading:`Artcle One! Web Development`,
-					content: `<p>
-								My name is Hameed and I am your Web Developer. This is the content of my first Article.My name is Hameed and I am your Web Developer. This is the content of my first Article.My name is Hameed and I am your Web Developer. This is the content of my first Article.
-							</p>
-							<p>
-								My name is Hameed and I am your Web Developer. This is the content of my first Article.My name is Hameed and I am your Web Developer. This is the content of my first Article.My name is Hameed and I am your Web Developer. This is the content of my first Article.
-							</p>
-							<p>
-								My name is Hameed and I am your Web Developer. This is the content of my first Article.My name is Hameed and I am your Web Developer. This is the content of my first Article.My name is Hameed and I am your Web Developer. This is the content of my first Article.
-							</p>
-							<p>
-								My name is Hameed and I am your Web Developer. This is the content of my first Article.My name is Hameed and I am your Web Developer. This is the content of my first Article.My name is Hameed and I am your Web Developer. This is the content of my first Article.
-							</p>`
-				},
-		artcleTwo: {
-					title: `Welcome To Artcle Two! Hameed Hussain`,
-					heading:`Artcle Two! Web Development`,
-					content: `<p>
-								My name is Hameed and I am your Web Developer. This is the content of my first Article.My name is Hameed and I am your Web Developer. This is the content of my first Article.My name is Hameed and I am your Web Developer. This is the content of my first Article.
-							</p>
-							<p>
-								My name is Hameed and I am your Web Developer. This is the content of my first Article.My name is Hameed and I am your Web Developer. This is the content of my first Article.My name is Hameed and I am your Web Developer. This is the content of my first Article.
-							</p>
-							<p>
-								My name is Hameed and I am your Web Developer. This is the content of my first Article.My name is Hameed and I am your Web Developer. This is the content of my first Article.My name is Hameed and I am your Web Developer. This is the content of my first Article.
-							</p>
-							<p>
-								My name is Hameed and I am your Web Developer. This is the content of my first Article.My name is Hameed and I am your Web Developer. This is the content of my first Article.My name is Hameed and I am your Web Developer. This is the content of my first Article.
-							</p>`
-				}
-};
+
 
 var config = {
                 user: 'hameedkurla',
@@ -122,6 +89,46 @@ app.post('/create-user', function (req, res) {
     });
 });
 
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+});
+
+
+var artcles={
+		artcleOne: {
+					title: `Welcome To Artcle One! Hameed Hussain`,
+					heading:`Artcle One! Web Development`,
+					content: `<p>
+								My name is Hameed and I am your Web Developer. This is the content of my first Article.My name is Hameed and I am your Web Developer. This is the content of my first Article.My name is Hameed and I am your Web Developer. This is the content of my first Article.
+							</p>
+							<p>
+								My name is Hameed and I am your Web Developer. This is the content of my first Article.My name is Hameed and I am your Web Developer. This is the content of my first Article.My name is Hameed and I am your Web Developer. This is the content of my first Article.
+							</p>
+							<p>
+								My name is Hameed and I am your Web Developer. This is the content of my first Article.My name is Hameed and I am your Web Developer. This is the content of my first Article.My name is Hameed and I am your Web Developer. This is the content of my first Article.
+							</p>
+							<p>
+								My name is Hameed and I am your Web Developer. This is the content of my first Article.My name is Hameed and I am your Web Developer. This is the content of my first Article.My name is Hameed and I am your Web Developer. This is the content of my first Article.
+							</p>`
+				},
+		artcleTwo: {
+					title: `Welcome To Artcle Two! Hameed Hussain`,
+					heading:`Artcle Two! Web Development`,
+					content: `<p>
+								My name is Hameed and I am your Web Developer. This is the content of my first Article.My name is Hameed and I am your Web Developer. This is the content of my first Article.My name is Hameed and I am your Web Developer. This is the content of my first Article.
+							</p>
+							<p>
+								My name is Hameed and I am your Web Developer. This is the content of my first Article.My name is Hameed and I am your Web Developer. This is the content of my first Article.My name is Hameed and I am your Web Developer. This is the content of my first Article.
+							</p>
+							<p>
+								My name is Hameed and I am your Web Developer. This is the content of my first Article.My name is Hameed and I am your Web Developer. This is the content of my first Article.My name is Hameed and I am your Web Developer. This is the content of my first Article.
+							</p>
+							<p>
+								My name is Hameed and I am your Web Developer. This is the content of my first Article.My name is Hameed and I am your Web Developer. This is the content of my first Article.My name is Hameed and I am your Web Developer. This is the content of my first Article.
+							</p>`
+				}
+};
+
 function createHtmltemplate(data){
 	var title=data.title;
 	var heading=data.heading;
@@ -155,9 +162,6 @@ function createHtmltemplate(data){
 	return htmltemplate;
 }
 
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
-});
 
 /*
 app.get('/artcle-two', function (req, res) {
