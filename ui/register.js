@@ -21,7 +21,7 @@ submit_btn.onclick = function() {
 	    }			
 	}
 	
-	request.open('POST', 'http://hameedkurla.imad.hasura-app.io/register', true);
+	request.open('POST', 'http://hameedkurla.imad.hasura-app.io/create-user', true);
 	request.setRequestHeader('Content-Type', 'application/json');
 	request.send(JSON.stringify({username,password,email}));
 };
