@@ -1,7 +1,5 @@
 console.log('Aert');
-var username = document.getElementById('username').value;
-var password = document.getElementById('password').value;
-var email = document.getElementById('email').value;
+
 var submit_btn = document.getElementById('submit_btn');
 
 submit_btn.onclick = function() {
@@ -20,7 +18,9 @@ submit_btn.onclick = function() {
 				}
 	    }			
 	}
-	
+	var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+    var email = document.getElementById('email').value;
 	request.open('POST', 'http://hameedkurla.imad.hasura-app.io/create-user', true);
 	request.setRequestHeader('Content-Type', 'application/json');
 	request.send(JSON.stringify({username,password,email}));
