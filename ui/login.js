@@ -17,7 +17,7 @@ submit_btn.onclick = function() {
 				    alert('Internal Error: something went wrong');
 				}
 	    }			
-	}
+	};
 	var username = document.getElementById('username').value;
     var password = document.getElementById('password').value;
     request.open('POST', 'http://hameedkurla.imad.hasura-app.io/login', true);
