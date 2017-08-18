@@ -168,6 +168,11 @@ app.get('/artcle-two', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'artcle-two.html'));
 });*/
 
+app.get('/:artcleName', function (req, res) {
+	//The Above paramter :artcleName brings artcle name(localhost:8080/artclename)
+	var artcleNameValue = req.params.artcleName;
+	res.send(createHtmltemplate(artcles[artcleNameValue]));
+});
 
 app.get('/artcles/:artcleName',function(req,res){
     
@@ -202,11 +207,6 @@ app.get('/getcount', function (req, res) {
   res.send(counter.toString());
 });
 
-app.get('/:artcleName', function (req, res) {
-	//The Above paramter :artcleName brings artcle name(localhost:8080/artclename)
-	var artcleNameValue = req.params.artcleName;
-	res.send(createHtmltemplate(artcles[artcleNameValue]));
-});
 
 app.get('/ui/main.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'main.js'));
