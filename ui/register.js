@@ -5,7 +5,7 @@ var email = document.getElementById('email').value;
 var submit_btn = document.getElementById('submit_btn');
 
 submit_btn.onclick = function() {
-	console.log('Loaded!');
+	console.log('Submit Loaded!');
 	var request = new XMLHttpRequest();
 	request.onreadystatechange = function() {
 	    if (request.readyState === XMLHttpRequest.DONE) {
