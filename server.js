@@ -46,7 +46,7 @@ app.get('/hash/:inputString', function (req, res) {
 });
 
 app.post('/login', function (req, res) {
-/* curl -XPOST -H 'Content-Type: application/json' --data '{"username": "Hameed", "password": "Husssain", "email": "hameed.kurla@gmail.com"}' http://hameedkurla.imad.hasura-app.io/create-user*/
+/* curl -v -XPOST -H 'Content-Type: application/json' --data '{"username": "Shazia", "password": "Husssain"}' http://hameedkurla.imad.hasura-app.io/login*/
     var username= req.body.username;
     var password= req.body.password;
     pool.query('SELECT * FROM users where username=$1',[username],function(err,result){
@@ -73,7 +73,7 @@ app.post('/login', function (req, res) {
 });
 
 app.post('/create-user', function (req, res) {
-/* curl -XPOST -H 'Content-Type: application/json' --data '{"username": "Hameed", "password": "Husssain", "email": "hameed.kurla@gmail.com"}' http://hameedkurla.imad.hasura-app.io/create-user*/
+/* curl -v -XPOST -H 'Content-Type: application/json' --data '{"username": "Hameed", "password": "Husssain", "email": "hameed.kurla@gmail.com"}' http://hameedkurla.imad.hasura-app.io/create-user*/
     var username= req.body.username;
     var password= req.body.password;
     var email= req.body.email;
