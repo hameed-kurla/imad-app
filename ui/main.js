@@ -22,7 +22,7 @@ function updateCounter() {
 		
 	}
 	
-	request.open('GET', 'http://localhost:8080/counter', true);
+	request.open('GET', 'http://localhost:80/counter', true);
 	request.send(null);
 }
 
@@ -39,7 +39,7 @@ function refreshCount(){
 		
 	}
 	
-	request.open('GET', 'http://localhost:8080/getcount', true);
+	request.open('GET', 'http://localhost:80/getcount', true);
 	request.send(null);
 }
 
